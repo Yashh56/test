@@ -1,0 +1,250 @@
+{
+  "version": 1,
+  "projectId": "dcb078fa-3440-4f89-9f66-187ffcc86780",
+  "databaseId": "37d57e2e-dc6b-4ca5-bdd4-21c97f60d0fd",
+  "schemas": [
+    {
+      "name": "public",
+      "tables": [
+        {
+          "name": "order_items",
+          "type": "BASE TABLE",
+          "columns": [
+            {
+              "name": "id",
+              "type": "integer",
+              "nullable": false,
+              "isPrimaryKey": true,
+              "isForeignKey": false,
+              "defaultValue": "nextval('order_items_id_seq'::regclass)",
+              "isUnique": false
+            },
+            {
+              "name": "order_id",
+              "type": "integer",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": true,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "product_id",
+              "type": "integer",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": true,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "quantity",
+              "type": "integer",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "price",
+              "type": "numeric",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            }
+          ]
+        },
+        {
+          "name": "orders",
+          "type": "BASE TABLE",
+          "columns": [
+            {
+              "name": "id",
+              "type": "integer",
+              "nullable": false,
+              "isPrimaryKey": true,
+              "isForeignKey": false,
+              "defaultValue": "nextval('orders_id_seq'::regclass)",
+              "isUnique": false
+            },
+            {
+              "name": "user_id",
+              "type": "integer",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": true,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "total_amount",
+              "type": "numeric",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": "0",
+              "isUnique": false
+            },
+            {
+              "name": "status",
+              "type": "USER-DEFINED",
+              "nullable": true,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": "'pending'::order_status",
+              "isUnique": false
+            },
+            {
+              "name": "created_at",
+              "type": "timestamp without time zone",
+              "nullable": true,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": "CURRENT_TIMESTAMP",
+              "isUnique": false
+            }
+          ]
+        },
+        {
+          "name": "products",
+          "type": "BASE TABLE",
+          "columns": [
+            {
+              "name": "id",
+              "type": "integer",
+              "nullable": false,
+              "isPrimaryKey": true,
+              "isForeignKey": false,
+              "defaultValue": "nextval('products_id_seq'::regclass)",
+              "isUnique": false
+            },
+            {
+              "name": "name",
+              "type": "character varying",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "price",
+              "type": "numeric",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "stock",
+              "type": "integer",
+              "nullable": true,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": "0",
+              "isUnique": false
+            },
+            {
+              "name": "created_at",
+              "type": "timestamp without time zone",
+              "nullable": true,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": "CURRENT_TIMESTAMP",
+              "isUnique": false
+            }
+          ]
+        },
+        {
+          "name": "schema_migrations",
+          "type": "BASE TABLE",
+          "columns": [
+            {
+              "name": "version",
+              "type": "text",
+              "nullable": false,
+              "isPrimaryKey": true,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "name",
+              "type": "text",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "applied_at",
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": "now()",
+              "isUnique": false
+            },
+            {
+              "name": "checksum",
+              "type": "text",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            }
+          ]
+        },
+        {
+          "name": "users",
+          "type": "BASE TABLE",
+          "columns": [
+            {
+              "name": "id",
+              "type": "integer",
+              "nullable": false,
+              "isPrimaryKey": true,
+              "isForeignKey": false,
+              "defaultValue": "nextval('users_id_seq'::regclass)",
+              "isUnique": false
+            },
+            {
+              "name": "name",
+              "type": "character varying",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "email",
+              "type": "character varying",
+              "nullable": false,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": null,
+              "isUnique": false
+            },
+            {
+              "name": "created_at",
+              "type": "timestamp without time zone",
+              "nullable": true,
+              "isPrimaryKey": false,
+              "isForeignKey": false,
+              "defaultValue": "CURRENT_TIMESTAMP",
+              "isUnique": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cachedAt": "2026-02-11T12:08:12.315Z"
+}

@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": "dcb078fa-3440-4f89-9f66-187ffcc86780",
+  "databaseId": "37d57e2e-dc6b-4ca5-bdd4-21c97f60d0fd",
+  "name": "dbStudio",
+  "engine": "postgresql",
+  "createdAt": "2026-02-11T12:08:01.706Z",
+  "updatedAt": "2026-02-11T12:08:01.706Z"
+}
